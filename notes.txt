@@ -1,0 +1,74 @@
+JSX - syntax extension to JavaScript
+    - produces React "elements"
+
+JSX
+  - Used as an Expression
+          if(user){
+            return <h1>hello</h1>
+          }
+          return <h1>stranger</h1>
+
+  - Specifying Attributes
+      const element = <img src={user.avatarUrl}></img>
+  - Specifying Children
+      <div>
+        <h1>hello!</h1>
+      </div>
+  - JSX Prevents Injection Attacks
+      React DOM escapes any values embedded in JSX before rendering them
+      Everything is converted to a string before being rendered
+  - JSX Represents Objects
+      React Elements - describes what you want to see on the screen:
+                     - Elements are what components are "made of"
+        const element = (
+          <h1 className="greeting">Hello, world!</h1>
+        )
+
+        is the same as
+
+        const element = React.createElement(
+          'h1',
+          {className: 'greeting'},
+          'Hello, world!'
+        )
+
+
+Chapter 3: Rendering elements
+  - React DOM will manage everything inside root DOM node
+  - React usually have a single root DOM node
+
+  Updating Rendered Element
+    - React elements are immutable
+      - Immutable objects - objects whose state cannot be modified after it is created
+
+Chapter 4: Components and Props
+  - Components let you split the UI into independent, reusable pieces
+  - Components accept arbitrary inputs called props and return React elements describing what should appear on the screen
+
+  Function Components:
+    function Welcome(props){
+      return <h1>Hello, {props.name}</h1>;
+    }
+
+  - Elements can also represent user-defined components
+  - Components can refer to other components in their output
+  - Props are Read-Only
+
+Chapter 5: State and Lifecycle
+  - State allows React components to change their output over time in response to user actions
+  - Local state is a feature available only to classes
+  - componentDidMont() method runs after the component output has been rendered to the DOM
+  - setState() updates variables independently
+
+Chapter 6: Handling Events
+  - With JSX you pass a function as the event handler, rather than string
+  - Event handler usually is a method on the class
+
+Chapter 7: Conditional rendering
+  - Render distinct components depending on the state of your application
+  - Create elements representing the current state, and let React update the UI to match them
+  - Inline If with Logical && Operator - "true && {expression}" always evaluates to /expression, and "false && {expression}" always evaluates to false
+  - Inline If-Else with Conditional Operator = condition ? true : false
+  - Return null to hide component even though it was rendered by another component
+
+Chapter 8: Lists and Keys
